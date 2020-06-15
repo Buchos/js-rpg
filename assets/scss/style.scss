@@ -14,9 +14,18 @@ body {
     column-gap: 30px;
     margin-top: 50px;
     section {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 90%;
+        padding: 10px;
         border-radius: 10px;
         width: 100%;
         height: 700px;
+        row-gap: 20px;
+        column-gap: 20px;
+        img {
+            border-radius: 10px;
+        }
     }
 }
 
@@ -28,6 +37,21 @@ body {
     background-color: rgb(255, 68, 68);
 }
 
-.log-panel {
+.game-screen {
     background-color: rgb(255, 223, 211);
+    .log-panel {
+        height: 300px;
+        background-color: rgba(49, 49, 49, 0.39);
+        border-radius: 10px;
+    }
+}
+
+///////////// BUTTONS
+.buttons div {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: rgba(32, 32, 32, 0.459);
+    border-radius: 5px;
+    margin: 7px 0px;
 }

@@ -375,9 +375,22 @@ body {
 }
 
 .maingrid section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  width: 90%;
+  padding: 10px;
   border-radius: 10px;
   width: 100%;
   height: 700px;
+  row-gap: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.maingrid section img {
+  border-radius: 10px;
 }
 
 .char-1 {
@@ -388,7 +401,22 @@ body {
   background-color: #ff4444;
 }
 
-.log-panel {
+.game-screen {
   background-color: #ffdfd3;
+}
+
+.game-screen .log-panel {
+  height: 300px;
+  background-color: rgba(49, 49, 49, 0.39);
+  border-radius: 10px;
+}
+
+.buttons div {
+  width: 100%;
+  height: 40px;
+  color: white;
+  background-color: rgba(32, 32, 32, 0.459);
+  border-radius: 5px;
+  margin: 7px 0px;
 }
 /*# sourceMappingURL=style.css.map */
