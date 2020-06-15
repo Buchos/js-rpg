@@ -358,7 +358,7 @@ img {
 }
 
 body {
-  background-color: #313131;
+  background-image: url("../img/bg.jpg");
 }
 
 .maingrid {
@@ -383,7 +383,6 @@ body {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
-  height: 700px;
   row-gap: 20px;
   -webkit-column-gap: 20px;
           column-gap: 20px;
@@ -391,23 +390,25 @@ body {
 
 .maingrid section img {
   border-radius: 10px;
+  width: 100%;
 }
 
 .char-1 {
-  background-color: #5c87ff;
+  background-color: rgba(92, 136, 255, 0.904);
 }
 
 .char-2 {
-  background-color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.808);
 }
 
 .game-screen {
-  background-color: #ffdfd3;
+  background-color: rgba(110, 110, 110, 0.699);
 }
 
 .game-screen .log-panel {
-  height: 300px;
-  background-color: rgba(49, 49, 49, 0.39);
+  height: 200px;
+  padding: 20px;
+  background-color: #cecdcd;
   border-radius: 10px;
 }
 
@@ -418,5 +419,6 @@ body {
   background-color: rgba(32, 32, 32, 0.459);
   border-radius: 5px;
   margin: 7px 0px;
+  padding: 10px;
 }
 /*# sourceMappingURL=style.css.map */
