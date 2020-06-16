@@ -81,7 +81,7 @@ body > * {
 }
 
 ///////////// BUTTONS
-.buttons div {
+.buttons div, .start-fight {
     width: 100%;
     color: $button-text-color;
     font-size: $medium;
@@ -91,6 +91,7 @@ body > * {
     border-radius: 5px;
     margin: 7px 0px;
     padding: 5px 10px;
+    cursor: pointer;
     &:hover {
         background-color: lighten($darkgray, 60);
     }

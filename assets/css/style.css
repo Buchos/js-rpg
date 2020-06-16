@@ -421,7 +421,7 @@ body > * {
   overflow: scroll;
 }
 
-.buttons div {
+.buttons div, .start-fight {
   width: 100%;
   color: white;
   font-size: 1.4rem;
@@ -431,9 +431,10 @@ body > * {
   border-radius: 5px;
   margin: 7px 0px;
   padding: 5px 10px;
+  cursor: pointer;
 }
 
-.buttons div:hover {
+.buttons div:hover, .start-fight:hover {
   background-color: rgba(185, 185, 185, 0.459);
 }
 /*# sourceMappingURL=style.css.map */
