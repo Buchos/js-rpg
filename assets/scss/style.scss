@@ -1,6 +1,25 @@
 @import "normalize";
 @import "responsive";
 
+////////////////////// COLORS
+$white: white;
+$black: black;
+$blue:rgba(92, 136, 255, 0.904);
+$red: rgba(255, 68, 68, 0.808);
+$lightgray: rgb(206, 205, 205);
+$mediumgray: rgba(110, 110, 110, 0.699);
+$darkgray: rgba(32, 32, 32, 0.459);
+
+///////////////////// COLOR ASSIGNMENTS
+$char-1-color: $blue;
+$char-2-color: $red;
+$game-screen-color: $mediumgray;
+$button-text-color: $white;
+$log-panel-color: $lightgray;
+$button-bg-color: $darkgray;
+
+
+
 body {
     background-image: url("../img/bg.jpg");
 }
@@ -8,11 +27,11 @@ body {
 .maingrid {
     display: grid;
     max-width: 70vw;
-    height: 800px;
+    height: 90vh;
     margin: auto;
     grid-template-columns: 1fr 2fr 1fr;
     column-gap: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
     section {
         display: grid;
         grid-template-rows: auto 1fr auto;
@@ -31,19 +50,19 @@ body {
 }
 
 .char-1 {
-    background-color: rgba(92, 136, 255, 0.904);
+    background-color: $char-1-color;
 }
 
 .char-2 {
-    background-color: rgba(255, 68, 68, 0.808);
+    background-color: $char-2-color;
 }
 
 .game-screen {
-    background-color: rgba(110, 110, 110, 0.699);
+    background-color: $game-screen-color;
     .log-panel {
         height: 200px;
         padding: 20px;
-        background-color: rgb(206, 205, 205);
+        background-color: $log-panel-color;
         border-radius: 10px;
     }
 }
@@ -52,8 +71,8 @@ body {
 .buttons div {
     width: 100%;
     height: 40px;
-    color: white;
-    background-color: rgba(32, 32, 32, 0.459);
+    color: $button-text-color;
+    background-color: $button-bg-color;
     border-radius: 5px;
     margin: 7px 0px;
     padding: 10px;
