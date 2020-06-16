@@ -381,9 +381,6 @@ body > * {
 .maingrid section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto 1fr auto;
-      grid-template-rows: auto 1fr auto;
-  width: 90%;
   padding: 10px;
   border-radius: 10px;
   width: 100%;
@@ -397,12 +394,39 @@ body > * {
   width: 100%;
 }
 
+.maingrid .char-1, .maingrid .char-2 {
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.maingrid .game-screen {
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
 .char-1 {
   background-color: rgba(92, 136, 255, 0.904);
 }
 
 .char-2 {
   background-color: rgba(255, 68, 68, 0.808);
+}
+
+.char-info {
+  font-size: 1.2rem;
+}
+
+.char-info div {
+  margin-top: 10px;
+}
+
+.char-info label {
+  display: block;
+  padding-bottom: 5px;
+}
+
+input {
+  width: 100%;
 }
 
 .game-screen {
@@ -420,6 +444,7 @@ body > * {
   padding: 20px;
   background-color: #cecdcd;
   overflow: scroll;
+  font-size: 0.9rem;
 }
 
 .buttons div, .start-fight {
@@ -437,5 +462,9 @@ body > * {
 
 .buttons div:hover, .start-fight:hover {
   background-color: rgba(185, 185, 185, 0.459);
+}
+
+select {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

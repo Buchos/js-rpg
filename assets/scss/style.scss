@@ -23,7 +23,8 @@ $log-panel-color: $lightgray;
 ////////////////////// Font Sizes
 $big: 1.8rem;
 $medium: 1.4rem;
-$small: 1rem;
+$regular: 1.2rem;
+$small: .9rem;
 
 
 body {
@@ -44,8 +45,6 @@ body > * {
     margin-top: 30px;
     section {
         display: grid;
-        grid-template-rows: auto 1fr auto;
-        width: 90%;
         padding: 10px;
         border-radius: 10px;
         width: 100%;
@@ -56,6 +55,12 @@ body > * {
             width: 100%;
         }
     }
+    .char-1, .char-2 {
+        grid-template-rows: 1fr;
+    }
+    .game-screen {
+        grid-template-rows: 1fr;
+    }
 }
 
 .char-1 {
@@ -65,6 +70,23 @@ body > * {
 .char-2 {
     background-color: $char-2-color;
 }
+
+.char-info {
+    font-size: $regular;
+    div {
+        margin-top: 10px;
+    }
+    label {
+        display: block;
+        padding-bottom: 5px;
+    }
+}
+
+////////////// Correct Width of Input Name Field
+input {
+    width: 100%;
+}
+
 
 /////////////////////// MIDDLE PANE
 .game-screen {
@@ -79,6 +101,7 @@ body > * {
         padding: 20px;
         background-color: $log-panel-color;
         overflow: scroll;
+        font-size: $small;
     }
 }
 
@@ -97,4 +120,8 @@ body > * {
     &:hover {
         background-color: lighten($darkgray, 60);
     }
+}
+
+select {
+    width: 100%;
 }
