@@ -409,9 +409,10 @@ body > * {
   background-color: rgba(110, 110, 110, 0.699);
 }
 
-.game-screen .turn {
-  font-size: 2 rem;
+.game-screen .turn, .game-screen .start-fight {
+  font-size: 1.8rem;
   text-align: center;
+  color: white;
 }
 
 .game-screen .log-panel {

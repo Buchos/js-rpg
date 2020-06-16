@@ -17,10 +17,11 @@ $button-text-color: $white;
 $button-bg-color: $darkgray;
 
 $game-screen-color: $mediumgray;
+$game-screen-text: $white;
 $log-panel-color: $lightgray;
 
 ////////////////////// Font Sizes
-$big: 2 rem;
+$big: 1.8rem;
 $medium: 1.4rem;
 $small: 1rem;
 
@@ -68,9 +69,10 @@ body > * {
 /////////////////////// MIDDLE PANE
 .game-screen {
     background-color: $game-screen-color;
-    .turn {
+    .turn, .start-fight {
         font-size: $big;
         text-align: center;
+        color: $game-screen-text;
     }
     .log-panel {
         height: 200px;
