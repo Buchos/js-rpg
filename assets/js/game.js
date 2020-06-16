@@ -12,10 +12,12 @@
         maxDamage : 20,
         maxHeling : 30,
         damagemodif : 1,
+        vampiremod : 0,
+
     }
 
     var player2 = {
-        race : "human",
+        race : "elf",
         item : "staff",
         currenthealth : 100,
         maxHealth : 100,
@@ -23,6 +25,7 @@
         maxDamage : 20,
         maxHeling : 30,
         damagemodif : 0.8,
+        vampiremod : 0,
     }
 
     console.log(player1); // test pour voir si ça marchait 
@@ -35,6 +38,28 @@
     // création de deux variables non définies globales pour qu'elles fonctionnent dans l'entièreté du programme.
     var me;
     var opponent;
+
+    
+
+    // fonction vampire
+
+    function vampire (){
+        // calcul de l'absorbtion. 
+        me.currenthealth += Math.floor(me.vampiremod * opponent.currenthealth);
+        // cas ou la vie absorbée fait est plus élevée que la vie max
+        if (me.currenthealth > me.maxHealth){
+            me.currenthealth = me.maxHealth;
+        }
+        // déduction de la vie de l'adversaire. Math.floor pour prendre la valeur basse et ne jamais tuer sur une absorbtion de vie. 
+        opponent.currenthealth -= Math.floor(me.vampiremod * opponent.currenthealth);
+        
+        // affichage uniquement si vampiremod != 0
+        if (me.vampiremod !=0){
+            console.log("enemy life is drained");
+            console.log("your life is " + me.currenthealth);
+            console.log("your enemy life is " + opponent.currenthealth);
+        }
+    }
     
     
 
@@ -68,17 +93,40 @@
         // calcul des dégats en tenant compte du modificateur de race
 
         const truedamages = Math.round(degats*opponent.damagemodif);
-        opponent.currenthealth -= truedamages;
-        console.log (truedamages)
-        console.log (opponent.currenthealth);
 
+        const chance = Math.round(Math.random()*100)
+        console.log("chance is "+ chance)
 
-        // vérification de la vie de l'adversaire
-        if (opponent.currenthealth <= 0){
-            opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
-            alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+        if (opponent.race === "elf" && chance <=30){
+            me.currenthealth -= Math.floor(truedamages/2);
+            console.log(truedamages);
+            console.log("backfired "+ Math.floor(truedamages/2));
+            console.log("your life is " + me.currenthealth);
+
+            if (me.currenthealth <= 0){
+                me.currenthealth = 0; // pas de négatif affichés dans l'UI
+                alert("you're dead") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+            }
         }
 
+        else {
+            
+            opponent.currenthealth -= truedamages;
+            console.log (truedamages)
+            console.log (opponent.currenthealth);
+
+            // vérification de la vie de l'adversaire
+            if (opponent.currenthealth <= 0){
+                opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
+                alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+            }
+
+            
+        }
+
+
+
+        
         
     }
 
@@ -115,11 +163,14 @@
     // bouton attaque player1
 
     document.getElementById("charOneHit").addEventListener("click", function() {
-        if (turn == 0){ // vérif du tour
+        if (turn == 0){ // vérif du tour            
             
             // choix de quel joueur est nous, quel est l'ennemi. va changer selon le jouer d'où l'intérêt de créer les variables en global et ne pas les définir.
             me = player1;    
             opponent = player2;
+
+            // vampire mod
+            vampire();
 
             console.log("attack")
             // appel fonction dégats
@@ -154,6 +205,9 @@
         if (turn == 0){
             me = player1;
             opponent = player2;
+
+            // vampire mod
+            vampire();
 
             console.log("heal")
             // appelle fonction heal
@@ -200,6 +254,9 @@
             me = player2;
             opponent = player1;
 
+            // vampire mod
+            vampire();
+
             console.log("attack")
             damages();
 
@@ -232,6 +289,9 @@
             
             me = player2;    
             opponent = player1;
+
+            // vampire mod
+            vampire()
 
             console.log("heal")
             heal();
