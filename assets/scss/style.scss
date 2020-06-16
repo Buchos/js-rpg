@@ -13,15 +13,24 @@ $darkgray: rgba(32, 32, 32, 0.459);
 ///////////////////// COLOR ASSIGNMENTS
 $char-1-color: $blue;
 $char-2-color: $red;
-$game-screen-color: $mediumgray;
 $button-text-color: $white;
-$log-panel-color: $lightgray;
 $button-bg-color: $darkgray;
 
+$game-screen-color: $mediumgray;
+$log-panel-color: $lightgray;
+
+////////////////////// Font Sizes
+$big: 2 rem;
+$medium: 1.4rem;
+$small: 1rem;
 
 
 body {
     background-image: url("../img/bg.jpg");
+}
+
+body > * {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .maingrid {
@@ -39,7 +48,6 @@ body {
         padding: 10px;
         border-radius: 10px;
         width: 100%;
-        // height: 700px;
         row-gap: 20px;
         column-gap: 20px;
         img {
@@ -57,23 +65,33 @@ body {
     background-color: $char-2-color;
 }
 
+/////////////////////// MIDDLE PANE
 .game-screen {
     background-color: $game-screen-color;
+    .turn {
+        font-size: $big;
+        text-align: center;
+    }
     .log-panel {
         height: 200px;
         padding: 20px;
         background-color: $log-panel-color;
-        border-radius: 10px;
+        overflow: scroll;
     }
 }
 
 ///////////// BUTTONS
 .buttons div {
     width: 100%;
-    height: 40px;
     color: $button-text-color;
+    font-size: $medium;
+    text-transform: uppercase;
+    text-align: center;
     background-color: $button-bg-color;
     border-radius: 5px;
     margin: 7px 0px;
-    padding: 10px;
+    padding: 5px 10px;
+    &:hover {
+        background-color: lighten($darkgray, 60);
+    }
 }

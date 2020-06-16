@@ -361,6 +361,10 @@ body {
   background-image: url("../img/bg.jpg");
 }
 
+body > * {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 .maingrid {
   display: -ms-grid;
   display: grid;
@@ -405,20 +409,31 @@ body {
   background-color: rgba(110, 110, 110, 0.699);
 }
 
+.game-screen .turn {
+  font-size: 2 rem;
+  text-align: center;
+}
+
 .game-screen .log-panel {
   height: 200px;
   padding: 20px;
   background-color: #cecdcd;
-  border-radius: 10px;
+  overflow: scroll;
 }
 
 .buttons div {
   width: 100%;
-  height: 40px;
   color: white;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
   background-color: rgba(32, 32, 32, 0.459);
   border-radius: 5px;
   margin: 7px 0px;
-  padding: 10px;
+  padding: 5px 10px;
+}
+
+.buttons div:hover {
+  background-color: rgba(185, 185, 185, 0.459);
 }
 /*# sourceMappingURL=style.css.map */
