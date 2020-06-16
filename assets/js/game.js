@@ -21,7 +21,7 @@
 
     console.log(player1);
 
-    var turn = new Boolean()
+    var turn = new Boolean();
     turn = Math.round(Math.random());
     console.log(turn);
 
