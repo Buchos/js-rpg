@@ -51,6 +51,9 @@ var dmgModDefender;
 // Defense Modifier (<1 = armored, >1 = vulnerable)
 var defModAttacker;
 var defModDefender;
+// Evade
+var evadeDefender;
+var evadeAttacker;
 // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
 attacker.stealHP;
 defender.stealHP;
@@ -61,8 +64,13 @@ defender.counterStrike;
 
 // Strike (Defender HP-)
 function strike () {
-    dmg = baseDMG * dmgModAttacker * defModDefender;
-    console.log(`${attacker} deals ${dmg} of damage to ${defender}`);
+    dmg = baseDMG * dmgModAttacker * defModDefender * evadeDefender;
+    if (dmg != 0) {
+        console.log(`${attacker} deals ${dmg} of damage to ${defender}`);
+    }
+    else {
+        console.log(`${defender} evades!!!`);
+    }
     hpDefender -= dmg;
 }
 // Steal HP (Attacker HP+)
