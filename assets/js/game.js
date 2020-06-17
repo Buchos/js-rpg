@@ -4,6 +4,7 @@
     // création de persos temporaires comme un barbare pour test
 
     var player1 = {
+        name : "Bob",
         race : "elf",
         item : "sword",
         currenthealth : 100,
@@ -17,6 +18,7 @@
     }
 
     var player2 = {
+        name : "Jimmy",
         race : "elf",
         item : "staff",
         currenthealth : 100,
@@ -34,7 +36,18 @@
     var turn = new Boolean();
     turn = Math.round(Math.random());
     console.log(turn);
+    
+    function turnchange(){
+        if(turn === 0){
+            document.getElementById("turn").innerHTML= "Tour de " + player1.name;
+        }
 
+        else { 
+            document.getElementById("turn").innerHTML= "Tour de " + player2.name;
+        }
+    }
+
+    turnchange();
     // création de deux variables non définies globales pour qu'elles fonctionnent dans l'entièreté du programme.
     var me;
     var opponent;
@@ -185,6 +198,7 @@
             // change le tour
             turn = 1;
             console.log(turn)
+            turnchange();
         }
 
         else {
@@ -214,6 +228,8 @@
             // change le tour
             turn = 1;
             console.log(turn)
+            
+            turnchange();
         }
 
         else {
@@ -268,6 +284,7 @@
             console.log("player1 life is " + player1.currenthealth);
             turn = 0;
             console.log(turn)
+            turnchange();
         }
 
         else {
@@ -296,6 +313,7 @@
             console.log("player2 life is " + player2.currenthealth);
             turn = 0;
             console.log(turn)
+            turnchange();
         }
 
         else {
@@ -305,7 +323,7 @@
 
     // player 2 yield
 
-    document.getElementById("charOneYield").addEventListener("click", function() {
+    document.getElementById("charTwoYield").addEventListener("click", function() {
         
         // vérif que c'est votre tour. 
         if (turn == 1){
