@@ -20,6 +20,19 @@ const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random intege
 // Bow	
 // 30% chance to attack twice
 
+/////////////// RACES
+// Humans
+// 20% less damage taken
+
+// Orcs
+// 40% more max health
+
+// Elves
+// 30% chance to deflect the attack back to the opponent. The attacker takes damage equal to 50% of the original hit. The elf takes no damage.
+
+// Vampires
+// 10% lifesteal from opponents current health at start of the vampire's turn.
+
 // Total damage of current attack
 var dmg;
 // Base Damage
