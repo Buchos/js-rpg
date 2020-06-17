@@ -9,11 +9,20 @@ class Character {
         this.name = name;
         this.race = race;
         this.item = item;
-        this.hpMax = 100 * hpRaceMod.orc; // CORRIGER!
+        this.hpMax = 100;
         this.hp = this.hpMax; // CORRIGER!
-        this.def = defRaceMod[this.race] * defItemMod[this.item] ; //can this work???
+        this.def = 1; //can this work???
     }
 }
+
+class Human extends Characters {
+    static this.def = 0.8;
+}
+
+class Orc extends Characters {
+    this.hpMax = 140;
+}
+
 
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 // Boots
