@@ -361,25 +361,26 @@ body {
   background-image: url("../img/bg.jpg");
 }
 
+body > * {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 .maingrid {
   display: -ms-grid;
   display: grid;
   max-width: 70vw;
-  height: 800px;
+  height: 90vh;
   margin: auto;
   -ms-grid-columns: 1fr 2fr 1fr;
       grid-template-columns: 1fr 2fr 1fr;
   -webkit-column-gap: 30px;
           column-gap: 30px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .maingrid section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto 1fr auto;
-      grid-template-rows: auto 1fr auto;
-  width: 90%;
   padding: 10px;
   border-radius: 10px;
   width: 100%;
@@ -393,6 +394,16 @@ body {
   width: 100%;
 }
 
+.maingrid .char-1, .maingrid .char-2 {
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.maingrid .game-screen {
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
 .char-1 {
   background-color: rgba(92, 136, 255, 0.904);
 }
@@ -401,24 +412,59 @@ body {
   background-color: rgba(255, 68, 68, 0.808);
 }
 
+.char-info {
+  font-size: 1.2rem;
+}
+
+.char-info div {
+  margin-top: 10px;
+}
+
+.char-info label {
+  display: block;
+  padding-bottom: 5px;
+}
+
+input {
+  width: 100%;
+}
+
 .game-screen {
   background-color: rgba(110, 110, 110, 0.699);
+}
+
+.game-screen .turn, .game-screen .start-fight {
+  font-size: 1.8rem;
+  text-align: center;
+  color: white;
 }
 
 .game-screen .log-panel {
   height: 200px;
   padding: 20px;
   background-color: #cecdcd;
-  border-radius: 10px;
+  overflow: scroll;
+  font-size: 0.9rem;
 }
 
-.buttons div {
+.buttons div, .start-fight {
   width: 100%;
-  height: 40px;
   color: white;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
   background-color: rgba(32, 32, 32, 0.459);
   border-radius: 5px;
   margin: 7px 0px;
-  padding: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.buttons div:hover, .start-fight:hover {
+  background-color: rgba(185, 185, 185, 0.459);
+}
+
+select {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
