@@ -3,6 +3,7 @@ const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
 const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
 
 const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
+var ctrAtkMod = .5; // half the damage for counterattack
 
 class Character {
     constructor(name, race, item) {
@@ -15,12 +16,25 @@ class Character {
     }
 }
 
-class Human extends Characters {
-    static this.def = 0.8;
+class Human extends Character {
+    constructor() {
+        super();
+        this.def = 0.8;
+    }
 }
 
-class Orc extends Characters {
-    this.hpMax = 140;
+class Orc extends Character {
+    constructor() {
+        super();
+        this.hpMax = 140;
+    }
+}
+
+class Elf extends Character {
+    constructor() {
+        super();
+        this.ctrAtk = 1;
+    }
 }
 
 
@@ -69,7 +83,7 @@ defender.stealHP;
 // Double (only the attacker can do a double attack)
 attacker.double;
 // Counter Strike (only defender can counter) (Attacker HP-)
-defender.counterStrike;
+defender.ctrAtk;
 
 // Strike (Defender HP-)
 function strike () {
@@ -102,9 +116,9 @@ function attack () {
         strike();
         stealHP();
     }
-    if (defender.counterStrike == 1) {
+    if (defender.ctrAtk == 1) {
         console.log(`${defender} counter-attacks!`);
-        dmg = baseDMG * dmgModDefender * defModAttacker; // Here it's the defender attacking the attacker
+        dmg = baseDMG * dmgModDefender * defModAttacker * ctrAtkMod; // Here it's the defender attacking the attacker
         console.log(`${defender} deals ${dmg} of damage to ${attacker}`);
         hpAttacker -= dmg;
     }
