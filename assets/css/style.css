@@ -434,7 +434,7 @@ body > * {
 
 .char-1-hp-bar, .char-2-hp-bar {
   background-color: #31b331;
-  width: 80%;
+  width: 40%;
   height: 16px;
   position: absolute;
   top: -10px;
