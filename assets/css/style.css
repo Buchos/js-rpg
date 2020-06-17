@@ -425,6 +425,21 @@ body > * {
   padding-bottom: 5px;
 }
 
+.char-1-hp-max-bar, .char-2-hp-max-bar {
+  background-color: red;
+  border: 2px solid #ebcb91;
+  height: 20px;
+  position: relative;
+}
+
+.char-1-hp-bar, .char-2-hp-bar {
+  background-color: #31b331;
+  width: 80%;
+  height: 16px;
+  position: absolute;
+  top: -10px;
+}
+
 input {
   width: 100%;
 }
