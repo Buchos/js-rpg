@@ -9,7 +9,7 @@ class Character {
         this.name = name;
         this.race = race;
         this.item = item;
-        this.hpMax = 100 * hpRaceMod[this.race]; // CORRIGER!
+        this.hpMax = 100 * hpRaceMod.orc; // CORRIGER!
         this.hp = this.hpMax; // CORRIGER!
         this.def = defRaceMod[this.race] * defItemMod[this.item] ; //can this work???
     }
