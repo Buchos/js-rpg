@@ -120,15 +120,11 @@
                 opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
                 alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
             }
-
-            
-        }
-
-
-
-        
+    
+        }        
         
     }
+    
 
     // creation function heal
 
