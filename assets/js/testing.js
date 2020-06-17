@@ -1,14 +1,19 @@
-const orcModif
+const orcModif;
+const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
+const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
+
+const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
 
 class Character {
     constructor(name, race, item) {
         this.name = name;
         this.race = race;
         this.item = item;
-        this.maxHP = 100 * hpMod;
+        this.hpMax = 100 * hpRaceMod[this.race]; // CORRIGER!
+        this.hp = this.hpMax; // CORRIGER!
+        this.def = defRaceMod[this.race] * defItemMod[this.item] ; //can this work???
     }
 }
-const orc = {hpModifier: 1.4, }
 
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 // Boots
@@ -24,11 +29,6 @@ const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random intege
 // 30% chance to attack twice
 
 /////////////// RACES
-// Humans
-// 20% less damage taken
-
-// Orcs
-// 40% more max health
 
 // Elves
 // 30% chance to deflect the attack back to the opponent. The attacker takes damage equal to 50% of the original hit. The elf takes no damage.
