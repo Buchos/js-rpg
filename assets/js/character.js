@@ -2,7 +2,7 @@
 function Person(race,item){
     this.race = race;
     this.item = item;
-    this.currenthealth = 100;
+    this.currentHealth = 100;
     this.maxHealth = 100;
     
     this.min = 3;

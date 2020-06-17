@@ -1,8 +1,11 @@
+const orcModif
+
 class Character {
     constructor(name, race, item) {
         this.name = name;
         this.race = race;
         this.item = item;
+        this.maxHP = 100 * hpMod;
     }
 }
 const orc = {hpModifier: 1.4, }
