@@ -1,6 +1,6 @@
 # MEDIEVAL GLADIATOR
 They burned your village and captured your people! They enslaved you and made you fight for their amusement. Your only hope to regain your freedom is to win gladiator tournament. Today is your last fight. Let's spill some blood!
-[Play the Game](https://arti-art.github.io/js-rpg/)
+### [Play the Game](https://arti-art.github.io/js-rpg/)
 
 ### Rules of the game
 Two players are fighting each other to death!  
