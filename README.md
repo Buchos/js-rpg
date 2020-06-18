@@ -14,7 +14,8 @@ The first one to lose all of his HP (health points) or yield loses the round.
 | Orc     | 40% more max health                                                                                                                         |
 | Elf     | 30% chance to deflect the attack back to the opponent. The attacker takes damage equal to 50% of the original hit. The elf takes no damage. |
 | Vampire | 10% lifesteal from opponents current health at start of the vampire's turn                                                                  |
-| Items   | Effects                                                                                                                                     |
+| Races   | Effects                                                                                                                                     |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Boots   | 30% chance to dodge an attack                                                                                                               |
 | Staff   | 20% increase in healing                                                                                                                     |
 | Sword   | 30% more damage                                                                                                                             |
