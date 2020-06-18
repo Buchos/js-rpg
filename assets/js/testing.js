@@ -5,9 +5,8 @@ const orcModif;
 var ctrAtkMod = .5; // half the damage for counterattack
 
 class Character {
-    constructor(name, race, item) {
+    constructor(name, item) {
         this.name = name;
-        this.race = race;
         this.item = item;
         // races
         this.hpMax = 100;
@@ -20,34 +19,43 @@ class Character {
 }
 
 class Human extends Character {
-    constructor() {
-        super();
+    constructor(name, item) {
+        super(name, item);
+        this.race = "human";
         this.def = 0.8;
     }
 }
 
 class Orc extends Character {
-    constructor() {
-        super();
+    constructor(name, item) {
+        super(name, item);
+        this.race = "orc";
         this.hpMax = 140;
     }
 }
 
 class Elf extends Character {
-    constructor() {
-        super();
+    constructor(name, item) {
+        super(name, item);
+        this.race = "elf";
         this.ctrAtk = 1;
     }
 }
 
 class Vampire extends Character {
-    constructor() {
-        super();
+    constructor(name, item) {
+        super(name, item);
+        this.race = "vampire";
         this.stealHP = 0.1;
     }
     // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
 }
 
+class Bow {
+    static double() {
+        character1.double = 1;
+    }
+}
 
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 // Boots
