@@ -435,6 +435,8 @@ body > * {
 .char-1-hp-bar, .char-2-hp-bar {
   background-color: #31b331;
   width: 40%;
+  -webkit-transition: width 1s;
+  transition: width 1s;
   height: 16px;
   position: absolute;
   top: -10px;
