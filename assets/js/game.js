@@ -49,12 +49,9 @@
     calcHP();
 
     function updateHP () {
-        document.getElementById("charOneHPBar").innerHTML = player1.currenthealth;
-        document.getElementById("charOneHPBarMax").innerHTML = player1.maxHealth;
-        document.getElementById("charTwoHPBar").innerHTML = player2.currenthealth;
-        document.getElementById("charTwoHPBarMax").innerHTML = player2.maxHealth;
-    }
-    updateHP();
+        document.getElementById("charOneHPBar").style.setProperty = player1.currenthealth/player1.currenthealth;
+        document.getElementById("charTwoHPBar").innerHTML = player2.currenthealth/player2.currenthealth;
+    };
 
     // création d'une variable turn pour déterminer le tour de jeu
     var turn = new Boolean();
