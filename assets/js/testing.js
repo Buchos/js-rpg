@@ -51,7 +51,17 @@ class Vampire extends Character {
     // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
 }
 
-class Bow {
+// character.item = getelement("item");
+    item(character, bow)
+
+function item(character, item) {
+    switch (item) {
+        case bow:
+            // character.
+    }
+}
+
+class item {
     static double() {
         character1.double = 1;
     }
