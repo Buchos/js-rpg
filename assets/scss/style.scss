@@ -124,10 +124,10 @@ input {
 .char-1-hp-bar, .char-2-hp-bar {
   background-color: #31b331;
   width: 40%;
-  transition: width 1s;
+  transition: width 2s;
   height: 16px;
   position: absolute;
-  top: -10px;
+  // top: -10px;
 }
 
 input {
