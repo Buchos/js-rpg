@@ -48,20 +48,20 @@ class Vampire extends Character {
         super(name, item);
         this.race = "vampire";
         this.stealHP = 0.1;
+        // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
     }
-    // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
 }
 
 // Items Function
-function itemModifiers(character, item) {
+function applyItemModifiers(character, item) {
     switch (item) {
-        case bow:
+        case "bow":
             character.double = 1;
             break;
-        case staff:
+        case "staff":
             character.heal = 1.2;
             break;
-        case boots:
+        case "boots":
             character.dodge = function() {
                 // if (rand numb btw 0 & 99) <= 29m return 0 (30% of having a 0 modifier to attack)
                 if ((Math.floor(Math.random() * 100)) <= 29) {
@@ -70,11 +70,13 @@ function itemModifiers(character, item) {
                 else {return 1;}
             };
             break;
-        case sword:
+        case "sword":
             character.attack = 1.3;
             break;
     }
 }
+
+
 
 // Base Damage
 const baseDMG = Math.floor(Math.random() * 100) + 60; // returns a random integer from 60 to 100 ;
@@ -99,10 +101,6 @@ var defModDefender;
 // Evade
 var evadeDefender;
 var evadeAttacker;
-// Double (only the attacker can do a double attack)
-attacker.double;
-// Counter Strike (only defender can counter) (Attacker HP-)
-defender.ctrAtk;
 
 // Strike (Defender HP-)
 function strike () {
@@ -142,3 +140,12 @@ function attack () {
         hpAttacker -= dmg;
     }
 }
+
+var playerBlue = new Human("Michel", "boots");
+var playerRed = new Vampire("Grom", "sword");
+
+applyItemModifiers(playerBlue, playerBlue.item);
+applyItemModifiers(playerRed, playerRed.item);
+
+console.log(playerBlue);
+console.log(playerRed);
