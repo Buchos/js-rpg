@@ -10,6 +10,7 @@ class char {
         this.maxHeling = 30;
         this.damagemodif = 1;
         this.vampiremod = 0;
+        this.elfmod = 1;
     }
 }
 
@@ -34,6 +35,9 @@ document.getElementById("startFight").addEventListener("click",() => {
         }
         if (x.race==="human") {
             x.damagemodif=0.8;
+        }
+        if (x.race ==="elf") {
+            x.elfmod =0;
         }
 
     }
