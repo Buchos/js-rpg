@@ -2,6 +2,7 @@ class Character {
     constructor(name, item) {
         this.name = name;
         this.item = item;
+        this.hp = 100;
         // races
         this.hpMax = 100;
         this.def = 1; // percentage
@@ -9,7 +10,7 @@ class Character {
         this.ctrAtk = 0; // 0/1 boolean
         // objects
         this.double = 0; // 0/1 boolean (bow)
-        this.attack = 1; // percentage (sword)
+        this.atk = 1; // percentage (sword)
         this.dodge = 1; // (boots) 1=no dodge
         this.heal = 1; // percentage (staff)
     }
@@ -27,6 +28,7 @@ class Orc extends Character {
     constructor(name, item) {
         super(name, item);
         this.race = "orc";
+        this.hp = 140;
         this.hpMax = 140;
     }
 }
@@ -67,54 +69,36 @@ function applyItemModifiers(character, item) {
             };
             break;
         case "sword":
-            character.attack = 1.3;
+            character.atk = 1.3;
             break;
     }
 }
-
-
 
 // Base Damage
 const baseDMG = Math.floor(Math.random() * 100) + 60; // returns a random integer from 60 to 100 ;
 // Total damage of current attack
 var dmg;
-
 // Vars for obect & race modifiers
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 var ctrAtkMod = .5; // half the damage for counterattack
 
-// HP
-var hpAttacker;
-var hpAttackerMax;
-var hpDefender;
-var hpDefenderMax;
-// Damage Modifier (>1 critical, <1 weak)
-var dmgModAttacker;
-var dmgModDefender;
-// Defense Modifier (<1 = armored, >1 = vulnerable)
-var defModAttacker;
-var defModDefender;
-// Evade
-var evadeDefender;
-var evadeAttacker;
-
 // Strike (Defender HP-)
 function strike () {
-    dmg = baseDMG * dmgModAttacker * defModDefender * evadeDefender;
+    dmg = baseDMG * attacker.atk * defender.def * defender.dodge;
     if (dmg != 0) {
         console.log(`${attacker} deals ${dmg} of damage to ${defender}`);
     }
     else {
         console.log(`${defender} evades!!!`);
     }
-    hpDefender -= dmg;
+    defender.hp -= dmg;
 }
 // Steal HP (Attacker HP+)
 function stealHP () {
     if (attacker.stealHP != 0) {
         hpStolen = dmg * attacker.stealHP;
         console.log(`${attacker} stole ${hpStolen}HP from ${defender}`);
-        hpAttacker += hpStolen;
+        attacker.hp += hpStolen;
         if (hpAttacker > hpAttackerMax) {
             hpAttacker = hpAttackerMax;
         }
@@ -131,17 +115,26 @@ function attack () {
     }
     if (defender.ctrAtk == 1) {
         console.log(`${defender} counter-attacks!`);
-        dmg = baseDMG * dmgModDefender * defModAttacker * ctrAtkMod; // Here it's the defender attacking the attacker
+        dmg = baseDMG * defender.atk * attacker.def * ctrAtkMod; // defender attacking attacker
         console.log(`${defender} deals ${dmg} of damage to ${attacker}`);
-        hpAttacker -= dmg;
+        attacker.hp -= dmg;
     }
 }
 
-var playerBlue = new Human("Michel", "boots");
-var playerRed = new Vampire("Grom", "sword");
+const playerBlue = new Human("Michel", "boots");
+const playerRed = new Vampire("Grom", "sword");
 
 applyItemModifiers(playerBlue, playerBlue.item);
 applyItemModifiers(playerRed, playerRed.item);
+
+var attacker;
+var defender;
+
+document.getElementById("playerBlueHit").addEventListener("click", function() {
+    attacker = playerBlue;
+    defender = playerRed;
+    attack();
+})
 
 console.log(playerBlue);
 console.log(playerRed);
