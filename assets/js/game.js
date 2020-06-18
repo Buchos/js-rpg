@@ -3,34 +3,55 @@
 
     // création de persos temporaires comme un barbare pour test
 
-    var player1 = {
-        name : "Bob",
-        race : "vampire",
-        item : "sword",
-        currenthealth : 100,
-        maxHealth : 100,
-        min : 3,
-        maxDamage : 20,
-        maxHeling : 30,
-        damagemodif : 1,
-        vampiremod : 0.1,
+    // var player1 = {
+    //     name : "Bob",
+    //     race : "vampire",
+    //     item : "sword",
+    //     currenthealth : 100,
+    //     maxHealth : 100,
+    //     min : 3,
+    //     maxDamage : 20,
+    //     maxHeling : 30,
+    //     damagemodif : 1,
+    //     vampiremod : 0.1,
 
-    }
+    // }
 
-    var player2 = {
-        name : "Jimmy",
-        race : "elf",
-        item : "staff",
-        currenthealth : 100,
-        maxHealth : 100,
-        min : 3,
-        maxDamage : 20,
-        maxHeling : 30,
-        damagemodif : 0.8,
-        vampiremod : 0,
-    }
+    // var player2 = {
+    //     name : "Jimmy",
+    //     race : "elf",
+    //     item : "staff",
+    //     currenthealth : 100,
+    //     maxHealth : 100,
+    //     min : 3,
+    //     maxDamage : 20,
+    //     maxHeling : 30,
+    //     damagemodif : 0.8,
+    //     vampiremod : 0,
+    // }
 
-    console.log(player1); // test pour voir si ça marchait 
+    player1JSON = localStorage.getItem('joueur1');
+    player1 = player1JSON && JSON.parse(player1JSON);
+    player2JSON = localStorage.getItem('joueur2');
+    player2 = player2JSON && JSON.parse(player2JSON);
+
+    function stringToNumber (x){
+        x.currenthealth = Number(x.currenthealth);
+        x.maxHealth = Number(x.maxHealth);
+        x.min = Number(x.min);
+        x.maxDamage = Number(x.maxDamage);
+        x.maxHeling = Number(x.maxHeling);
+        x.damagemodif = Number(x.damagemodif);
+        x.vampiremod =Number(x.vampiremod);
+        console.log(x.maxHeling);
+        console.log(x.min);
+
+    } 
+
+    stringToNumber (player1);
+    stringToNumber (player2);
+
+    console.log(player1, player2); // test pour voir si ça marchait 
 
     //Récupérer la race et l'item et l'afficher
     document.getElementById("charOneRace").innerHTML = "Race : " + player1.race;
@@ -43,6 +64,8 @@
     document.getElementById("log-panel").innerHTML = "";
     var logPanel = document.getElementById("log-panel").innerHTML;
     console.log("logPanel " + logPanel);
+
+    
 
     function gotoBottom(){
         var element = document.getElementById("log-panel");
@@ -198,6 +221,7 @@
         // calcul de base 
 
         var restore = me.min + Math.round(Math.random()*(me.maxHeling - me.min));
+        console.log("restore " + restore);
         
         // vérification possession staff
 
