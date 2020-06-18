@@ -5,12 +5,6 @@ const playerRedImg = document.getElementById("playerRedImg");
 
 // s'assurer que les img ont bien l'ID playerBlueImg et playerRedImg (deja fait dans mon html)
 
-playerBlueImg.setAttribute("src", "assets/img/js-rpg-human.png");
-playerBlueImg.setAttribute("src", "assets/img/js-rpg-elf.png");
-playerBlueImg.setAttribute("src", "assets/img/js-rpg-orc.png");
-playerBlueImg.setAttribute("src", "assets/img/js-rpg-vampire.png");
-
-
 function setPlayerBlueImg(character) {
     switch (character.race) {
         case "human":
