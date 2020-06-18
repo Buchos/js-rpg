@@ -1,7 +1,3 @@
-// const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
-// const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
-// const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
-
 class Character {
     constructor(name, item) {
         this.name = name;
