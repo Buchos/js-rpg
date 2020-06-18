@@ -1,5 +1,5 @@
 # MEDIEVAL GLADIATOR
-They burned your village and captured your people! They enslaved you and made you fight for their amusement. Your only hope to regain your freedom is to win gladiator tournament. Today is your last fight. Let's spill some blood!
+They burned your village and captured your people! They enslaved you and made you fight for their amusement. Your only hope to regain your freedom is to win this gladiator tournament. Today is your last fight. Let's spill some blood!
 ### [Play the Game](https://arti-art.github.io/js-rpg/)
 
 ### Game Rules
@@ -9,7 +9,7 @@ Turn by turn, each player can either **attack**, **heal** or **yeld**.
 The first one to lose all of his HP (health points) or yield loses the round.
 
 
-### Game Mechanics - Races and Items
+#### Game Mechanics - Races and Items
 | Races   | Effects                                                                                                                                     |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Human   | 20% less damage taken                                                                                                                       |
@@ -28,7 +28,7 @@ The first one to lose all of his HP (health points) or yield loses the round.
 ### Project Description
 This game is a Javascript exercice for Becode Liege. The objective was to practice and consolidate our Javascript knowledge by working as a team on a web browser mini-game using HTML, CSS and JS.
 [Instructions for the exercice](https://github.com/becodeorg/LIE-Jepsen-3.20/tree/master/02-the-hill/01-javascript/01-rpg-project)
-This project was started on ??? and must be handed in by friday 19 of June. 
+This project was started on Tuesday 16.06.2020 and must be handed in by Friday 19.06.2020. 
 
 ### Produced by Team 6
 + Arthur Pluymers
