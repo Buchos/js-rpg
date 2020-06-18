@@ -9,12 +9,6 @@ function Person(race,item){
     this.maxDamage = 20;
     this.maxHealing = 30;
 
-    this.heal = function(){};
-
-    this.damage = function(){};
-
-    this.totalDamage = this.damage();
-
     this.displayChar = function(){
         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
     };
