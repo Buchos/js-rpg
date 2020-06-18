@@ -5,7 +5,7 @@
 
     var player1 = {
         name : "Bob",
-        race : "staff",
+        race : "vampire",
         item : "sword",
         currenthealth : 100,
         maxHealth : 100,
@@ -13,7 +13,7 @@
         maxDamage : 20,
         maxHeling : 30,
         damagemodif : 1,
-        vampiremod : 0,
+        vampiremod : 0.1,
 
     }
 
@@ -40,9 +40,23 @@
     document.getElementById("charOneName").innerHTML = "Name : " + player1.name;
     document.getElementById("charTwoName").innerHTML = "Name : " + player2.name;
     
-    document.getElementById("log-panel").innerHTML = "Begin the fight\n"
+    document.getElementById("log-panel").innerHTML = "";
     var logPanel = document.getElementById("log-panel").innerHTML;
     console.log("logPanel " + logPanel);
+
+    function gotoBottom(){
+        var element = document.getElementById("log-panel");
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+    }
+
+    function ajoutlog(x){
+        var node = document.createElement("LI");                 
+        var textnode = document.createTextNode(x);         // Create a text node
+        node.appendChild(textnode);
+        document.getElementById("log-panel").appendChild(node); 
+
+        gotoBottom(); 
+    }
 
     function calcHP() {
         document.getElementById("charOneHP").innerHTML = "HP : " + player1.currenthealth + "/" + player1.maxHealth;
@@ -96,7 +110,7 @@
         
         // affichage uniquement si vampiremod != 0
         if (me.vampiremod !=0){
-            logPanel = +"Enemy vampire sucks your blood !\n";
+            ajoutlog("Enemy vampire sucks your blood !");
 
             console.log("enemy life is drained");
             console.log("your life is " + me.currenthealth);
@@ -118,7 +132,8 @@
 
         if (me.item ==="sword"){
             degats += Math.floor(degats*0.3);
-            logPanel = "Your attack is increased thanks to the sword !\n" + logPanel;
+            
+            ajoutlog("Your attack is increased thanks to the sword !");
             console.log("power up")
         }
 
@@ -130,7 +145,7 @@
             if (esq <= 30){
                 // si esquive réussie, les dégats égalent 0
                 degats = 0;
-                logPanel = "You dodged the attack thanks to your boots !\n" + logPanel;
+                ajoutlog("You dodged the attack thanks to your boots !")
                 console.log("esquivé")
             }
         }
@@ -146,7 +161,7 @@
             me.currenthealth -= Math.floor(truedamages/2);
             calcHP();
             updateHP();
-            logPanel = "Your opponent returns 50% of your attack !\n" + logPanel;
+            ajoutlog("Your opponent returns 50% of your attack !");
             console.log(truedamages);
             console.log("backfired "+ Math.floor(truedamages/2));
             console.log("your life is " + me.currenthealth);
@@ -188,7 +203,7 @@
 
         if (me.item ==="staff"){
             restore += Math.floor(restore*0.3);
-            logPanel = "Your healing power is increased thanks to your magical staff !\n" + logPanel;
+            ajoutlog("Your healing power is increased thanks to your magical staff !");
             console.log("white mage rocks");
         }
 
@@ -228,7 +243,7 @@
             if(me.item === "bow"){
                 let bowchance = Math.round(Math.random() * 100)
                 if (bowchance <= 30){
-                    logPanel = "Second attack thanks to the bow !\n" + logPanel;
+                    ajoutlog("Second attack thanks to the bow !");
                     console.log("second attack");
                     // appel fonction dégats
                     damages();
@@ -322,7 +337,7 @@
             if(me.item === "bow"){
                 let bowchance = Math.round(Math.random() * 100)
                 if (bowchance <= 30){
-                    logPanel = "Second attack thanks to the bow !\n" + logPanel;
+                    ajoutlog("Second attack thanks to the bow !");
                     console.log("second attack");
                     // appel fonction dégats
                     damages();
