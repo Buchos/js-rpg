@@ -1,8 +1,6 @@
-const orcModif;
 // const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
 // const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
 // const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
-var ctrAtkMod = .5; // half the damage for counterattack
 
 class Character {
     constructor(name, item) {
@@ -17,6 +15,7 @@ class Character {
         this.double = 0; // 0/1 boolean (bow)
         this.attack = 1; // percentage (sword)
         this.dodge = 1; // (boots) 1=no dodge
+        this.heal = 1; // percentage (staff)
     }
 }
 
@@ -53,45 +52,39 @@ class Vampire extends Character {
     // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
 }
 
-// character.item = getelement("item");
-    item(character, bow)
-
-function item(character, item) {
+// Items Function
+function itemModifiers(character, item) {
     switch (item) {
         case bow:
             character.double = 1;
+            break;
         case staff:
-            
+            character.heal = 1.2;
+            break;
         case boots:
             character.dodge = function() {
                 // if (rand numb btw 0 & 99) <= 29m return 0 (30% of having a 0 modifier to attack)
                 if ((Math.floor(Math.random() * 100)) <= 29) {
                     return 0;
                 }
+                else {return 1;}
             };
+            break;
         case sword:
             character.attack = 1.3;
+            break;
     }
 }
 
-
-const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
-// Boots
-// 30% chance to dodge an attack 
-
-// Staff	
-// 20% increase in healing
-
-// Sword	
-// 30% more damage
-
-// Bow
-// 30% chance to attack twice
-
+// Base Damage
+const baseDMG = Math.floor(Math.random() * 100) + 60; // returns a random integer from 60 to 100 ;
 // Total damage of current attack
 var dmg;
-// Base Damage
-const baseDMG = 100;
+
+// Vars for obect & race modifiers
+const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
+var ctrAtkMod = .5; // half the damage for counterattack
+
 // HP
 var hpAttacker;
 var hpAttackerMax;
