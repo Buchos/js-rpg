@@ -100,6 +100,7 @@ body > * {
 .char-1-hp-bar, .char-2-hp-bar {
     background-color: $hp-bar-green;
     width: 40%;
+    transition: width 1s;
     height: 16px;
     position: absolute;
     top: -10px;
