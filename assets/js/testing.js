@@ -14,7 +14,9 @@ class Character {
         this.stealHP = 0; // percentage
         this.ctrAtk = 0; // 0/1 boolean
         // objects
-        this.double = 0; // 0/1 boolean
+        this.double = 0; // 0/1 boolean (bow)
+        this.attack = 1; // percentage (sword)
+        this.dodge = 1; // (boots) 1=no dodge
     }
 }
 
@@ -57,15 +59,21 @@ class Vampire extends Character {
 function item(character, item) {
     switch (item) {
         case bow:
-            // character.
+            character.double = 1;
+        case staff:
+            
+        case boots:
+            character.dodge = function() {
+                // if (rand numb btw 0 & 99) <= 29m return 0 (30% of having a 0 modifier to attack)
+                if ((Math.floor(Math.random() * 100)) <= 29) {
+                    return 0;
+                }
+            };
+        case sword:
+            character.attack = 1.3;
     }
 }
 
-class item {
-    static double() {
-        character1.double = 1;
-    }
-}
 
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 // Boots
