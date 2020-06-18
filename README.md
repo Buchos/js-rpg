@@ -9,7 +9,7 @@ Turn by turn, each player can either **attack**, **heal** or **yeld**.
 The first one to lose all of his HP (health points) or yield loses the round.
 
 
-#### Game Mechanics - Races and Items
+### Game Mechanics - Races and Items
 | Races   | Effects                                                                                                                                     |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Human   | 20% less damage taken                                                                                                                       |
