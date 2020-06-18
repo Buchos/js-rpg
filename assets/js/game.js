@@ -30,6 +30,8 @@
     //     vampiremod : 0,
     // }
 
+    // récupération des personnages de 
+
     player1JSON = localStorage.getItem('joueur1');
     player1 = player1JSON && JSON.parse(player1JSON);
     player2JSON = localStorage.getItem('joueur2');
@@ -192,6 +194,7 @@
             if (me.currenthealth <= 0){
                 me.currenthealth = 0; // pas de négatif affichés dans l'UI
                 alert("you're dead") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+                window.location = './index.html';
             }
         }
 
@@ -207,6 +210,7 @@
             if (opponent.currenthealth <= 0){
                 opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
                 alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+                window.location = './index.html';
             }
     
         }        

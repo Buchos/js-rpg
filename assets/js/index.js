@@ -43,8 +43,10 @@ document.getElementById("startFight").addEventListener("click",() => {
 
     console.log(player1, player2);
 
-localStorage.setItem('joueur1', JSON.stringify(player1));
-localStorage.setItem('joueur2', JSON.stringify(player2));
+    localStorage.setItem('joueur1', JSON.stringify(player1));
+    localStorage.setItem('joueur2', JSON.stringify(player2));
+
+    window.location = './game.html';
 
 
 })
