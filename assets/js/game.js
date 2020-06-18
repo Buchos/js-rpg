@@ -16,7 +16,6 @@
         x.maxHeling = Number(x.maxHeling);
         x.damagemodif = Number(x.damagemodif);
         x.vampiremod =Number(x.vampiremod);
-        x.elfmod =Number(x.elfmod);
 
     } 
 
@@ -110,32 +109,10 @@
         }
     }
     
-    function elf () {
-        const chance = Math.round(Math.random()*100)
-        if (opponent.race === "elf" && chance <=30){
-            me.currenthealth -= Math.floor(truedamages/2);
-            calcHP();
-            updateHP();
-            ajoutlog("Your opponent avoids your attack and returns 50% of the damages !");
-            ajoutlog("You loose " + truedamages + " HP");
-
-            
-        }
-
-        else {
-            
-            opponent.currenthealth -= truedamages;
-            calcHP();
-            updateHP();
-            ajoutlog("Your opponent looses " + truedamages + " HP");
-
-    
-        }        
-
-    }
     
 
     // fonction de calcul des dégats
+
     function damages() {
             
         // calcul de base 
@@ -166,25 +143,41 @@
 
         // calcul des dégats en tenant compte du modificateur de race
 
-        const truedamages = opponent.elfmod*Math.floor(degats*opponent.damagemodif);
+        const truedamages = Math.floor(degats*opponent.damagemodif);
 
-        opponent.currenthealth -= truedamages;
-        calcHP();
-        updateHP();
-        if (opponent.elfmod !== 0) {
+        const chance = Math.round(Math.random()*100)
+
+        if (opponent.race === "elf" && chance <=30){
+            me.currenthealth -= Math.floor(truedamages/2);
+            calcHP();
+            updateHP();
+            ajoutlog("Your opponent avoids your attack and returns 50% of the damages !");
+            ajoutlog("You loose " + truedamages + " HP");
+
+
+            if (me.currenthealth <= 0){
+                me.currenthealth = 0; // pas de négatif affichés dans l'UI
+                alert("you're dead") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+                window.location = './index.html';
+            }
+        }
+
+        else {
+            
+            opponent.currenthealth -= truedamages;
+            calcHP();
+            updateHP();
             ajoutlog("Your opponent looses " + truedamages + " HP");
-        }
 
-        elf ();
 
-        // vérification de la vie de l'adversaire
-        if (opponent.currenthealth <= 0){
-            opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
-            alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
-            window.location = './index.html';
-        }
-
-        
+            // vérification de la vie de l'adversaire
+            if (opponent.currenthealth <= 0){
+                opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
+                alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+                window.location = './index.html';
+            }
+    
+        }        
         
     }
     
