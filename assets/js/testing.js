@@ -1,8 +1,7 @@
 const orcModif;
-const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
-const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
-
-const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
+// const hpRaceMod = {human: 1, orc: 1.4, elf: 1, vampire: 1};
+// const defRaceMod = {human: 0.8, orc: 1, elf: 1, vampire: 1}; // humans -20%dmg
+// const defItemMod = {boots: 1, staff: 1, sword: 1, bow: 1};
 var ctrAtkMod = .5; // half the damage for counterattack
 
 class Character {
@@ -10,8 +9,13 @@ class Character {
         this.name = name;
         this.race = race;
         this.item = item;
+        // races
         this.hpMax = 100;
-        this.def = 1;
+        this.def = 1; // percentage
+        this.stealHP = 0; // percentage
+        this.ctrAtk = 0; // 0/1 boolean
+        // objects
+        this.double = 0; // 0/1 boolean
     }
 }
 
@@ -36,6 +40,14 @@ class Elf extends Character {
     }
 }
 
+class Vampire extends Character {
+    constructor() {
+        super();
+        this.stealHP = 0.1;
+    }
+    // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
+}
+
 
 const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random integer from 1 to 3
 // Boots
@@ -47,13 +59,8 @@ const bowDouble = Math.floor(Math.random() * 3) + 1;  // returns a random intege
 // Sword	
 // 30% more damage
 
-// Bow	
+// Bow
 // 30% chance to attack twice
-
-/////////////// RACES
-
-// Vampires
-// 10% lifesteal from opponents current health at start of the vampire's turn.
 
 // Total damage of current attack
 var dmg;
@@ -73,9 +80,6 @@ var defModDefender;
 // Evade
 var evadeDefender;
 var evadeAttacker;
-// Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
-attacker.stealHP;
-defender.stealHP;
 // Double (only the attacker can do a double attack)
 attacker.double;
 // Counter Strike (only defender can counter) (Attacker HP-)
