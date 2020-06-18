@@ -26,9 +26,8 @@ The first one to lose all of his HP (health points) or yield loses the round.
 | Bow     | 30% chance to attack twice                                                                                                                  |
 
 ### Project Description
-This game is a Javascript exercice for Becode Liege. The objective was to practice and consolidate our Javascript knowledge by working as a team on a web browser mini-game using HTML, CSS and JS.  
+This game is a Javascript exercice for Becode Liege. The objective was to practice and consolidate our Javascript knowledge by working as a team on a web browser mini-game using HTML, CSS and JS. This project was started on Tuesday 16.06.2020 and must be handed in by Friday 19.06.2020.  
 [Instructions for the exercice](https://github.com/becodeorg/LIE-Jepsen-3.20/tree/master/02-the-hill/01-javascript/01-rpg-project)  
-This project was started on Tuesday 16.06.2020 and must be handed in by Friday 19.06.2020. 
 
 ### Produced by Team 6
 + Arthur Pluymers
