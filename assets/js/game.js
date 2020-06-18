@@ -5,7 +5,7 @@
 
     var player1 = {
         name : "Bob",
-        race : "vampire",
+        race : "orc",
         item : "sword",
         currenthealth : 100,
         maxHealth : 100,
@@ -13,14 +13,14 @@
         maxDamage : 20,
         maxHeling : 30,
         damagemodif : 1,
-        vampiremod : 0.1,
+        vampiremod : 0,
 
     }
 
     var player2 = {
         name : "Jimmy",
-        race : "elf",
-        item : "staff",
+        race : "orc",
+        item : "sword",
         currenthealth : 100,
         maxHealth : 100,
         min : 3,
@@ -51,9 +51,11 @@
     calcHP();
 
     function updateHP () {
-        document.getElementById("charOneHPBar").style["width"] = (player1.currenthealth/player1.currenthealth) + "%";
-        document.getElementById("charOneTwoBar").style["width"] = (player2.currenthealth/player2.currenthealth) + "%";
+        document.getElementById("charOneHPBar").style["width"] = (player1.currenthealth/player1.maxHealth*100) + "%";
+        document.getElementById("charTwoHPBar").style["width"] = (player2.currenthealth/player2.maxHealth*100) + "%";
     };
+
+    updateHP();
 
     // création d'une variable turn pour déterminer le tour de jeu
     var turn = new Boolean();
@@ -83,6 +85,7 @@
         // calcul de l'absorbtion. 
         me.currenthealth += Math.floor(me.vampiremod * opponent.currenthealth);
         calcHP();
+        updateHP();
         // cas ou la vie absorbée fait est plus élevée que la vie max
         if (me.currenthealth > me.maxHealth){
             me.currenthealth = me.maxHealth;
@@ -90,6 +93,7 @@
         // déduction de la vie de l'adversaire. Math.floor pour prendre la valeur basse et ne jamais tuer sur une absorbtion de vie. 
         opponent.currenthealth -= Math.floor(me.vampiremod * opponent.currenthealth);
         calcHP();
+        updateHP();
         
         // affichage uniquement si vampiremod != 0
         if (me.vampiremod !=0){
@@ -142,6 +146,7 @@
         if (opponent.race === "elf" && chance <=30){
             me.currenthealth -= Math.floor(truedamages/2);
             calcHP();
+            updateHP();
             logPanel = "Your opponent returns 50% of your attack !\n" + logPanel;
             console.log(truedamages);
             console.log("backfired "+ Math.floor(truedamages/2));
@@ -157,6 +162,7 @@
             
             opponent.currenthealth -= truedamages;
             calcHP();
+            updateHP();
             console.log (truedamages)
             console.log (opponent.currenthealth);
 
@@ -233,6 +239,7 @@
             console.log("player2 life is " + player2.currenthealth);
             // change le tour
             calcHP();
+            updateHP();
             turn = 1;
             console.log(turn)
             turnchange();
@@ -264,6 +271,7 @@
             console.log("player1 life is " + player1.currenthealth);
             // change le tour
             calcHP();
+            updateHP();
             turn = 1;
             console.log(turn)
             
@@ -324,6 +332,7 @@
 
             console.log("player1 life is " + player1.currenthealth);
             calcHP();
+            updateHP();
             turn = 0;
             console.log(turn)
             turnchange();
@@ -354,6 +363,7 @@
 
             console.log("player2 life is " + player2.currenthealth);
             calcHP();
+            updateHP();
             turn = 0;
             console.log(turn)
             turnchange();
