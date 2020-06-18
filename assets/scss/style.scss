@@ -5,14 +5,17 @@
 $white: white;
 $black: black;
 $blue:rgba(92, 136, 255, 0.904);
-$red: rgba(255, 68, 68, 0.808);
+$red: red;
+$green: rgb(49, 179, 49);
+$lightyellow: rgb(235, 203, 145);
+$alpha-red: rgba(255, 68, 68, 0.808);
 $lightgray: rgb(206, 205, 205);
 $mediumgray: rgba(110, 110, 110, 0.699);
 $darkgray: rgba(32, 32, 32, 0.459);
 
 ///////////////////// COLOR ASSIGNMENTS
 $char-1-color: $blue;
-$char-2-color: $red;
+$char-2-color: $alpha-red;
 $button-text-color: $white;
 $button-bg-color: $darkgray;
 
@@ -20,13 +23,17 @@ $game-screen-color: $mediumgray;
 $game-screen-text: $white;
 $log-panel-color: $lightgray;
 
+$hp-bar-red: $red;
+$hp-bar-green: $green;
+$hp-bar-border: $lightyellow;
+
 ////////////////////// Font Sizes
 $big: 1.8rem;
 $medium: 1.4rem;
 $regular: 1.2rem;
 $small: .9rem;
 
-
+///////////////////// General
 body {
     background-image: url("../img/bg.jpg");
 }
@@ -80,6 +87,22 @@ body > * {
         display: block;
         padding-bottom: 5px;
     }
+}
+
+////////////// Health Bar
+
+.char-1-hp-max-bar, .char-2-hp-max-bar {
+    background-color: $hp-bar-red;
+    border: 2px solid $hp-bar-border;
+    height: 20px;
+    position: relative;
+}
+.char-1-hp-bar, .char-2-hp-bar {
+    background-color: $hp-bar-green;
+    width: 40%;
+    height: 16px;
+    position: absolute;
+    top: -10px;
 }
 
 ////////////// Correct Width of Input Name Field
