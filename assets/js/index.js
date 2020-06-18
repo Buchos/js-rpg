@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // let charOneRace;
 // let charOneItem;
@@ -85,3 +86,5 @@ document.getElementById("startFight").addEventListener("click",() => {
     console.log(charOne, charTwo);
     
 })
+=======
+>>>>>>> origin/arti
