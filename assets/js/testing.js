@@ -45,10 +45,18 @@ class Vampire extends Character {
     constructor(name, item) {
         super(name, item);
         this.race = "vampire";
-        this.stealHP = 0.1;
+        this.stealHP = 0.2;
         // Steal HP object property (modifier) (0= no steal, 1 = steal 100%) (!0 if vamp or object)
     }
 }
+
+function testFunction() {
+    // if (rand numb btw 0 & 99) <= 29m return 0 (30% of having a 0 modifier to attack)
+    if ((Math.floor(Math.random() * 100)) <= 29) {
+        return 0;
+    }
+    else {return 1;}
+};
 
 // Items Function
 function applyItemModifiers(character, item) {
@@ -60,13 +68,7 @@ function applyItemModifiers(character, item) {
             character.heal = 1.2;
             break;
         case "boots":
-            character.dodge = function() {
-                // if (rand numb btw 0 & 99) <= 29m return 0 (30% of having a 0 modifier to attack)
-                if ((Math.floor(Math.random() * 100)) <= 29) {
-                    return 0;
-                }
-                else {return 1;}
-            };
+            character.dodge = testFunction();
             break;
         case "sword":
             character.atk = 1.3;
@@ -84,7 +86,7 @@ var ctrAtkMod = .5; // half the damage for counterattack
 
 // Strike (Defender HP-)
 function strike () {
-    dmg = baseDMG() * attacker.atk * defender.def * defender.dodge;
+    dmg = Math.round(baseDMG() * attacker.atk * defender.def * defender.dodge);
     if (dmg != 0) {
         console.log(`${attacker.name} deals ${dmg} of damage to ${defender.name}`);
     }
@@ -96,7 +98,7 @@ function strike () {
 // Steal HP (Attacker HP+)
 function stealHP () {
     if (attacker.stealHP != 0) {
-        hpStolen = dmg * attacker.stealHP;
+        hpStolen = Math.ceil(dmg * attacker.stealHP);
         console.log(`${attacker.name} stole ${hpStolen}HP from ${defender.name}`);
         attacker.hp += hpStolen;
         if (attacker.hp > attacker.hpMax) {
@@ -123,7 +125,7 @@ function attack () {
 
 // Init Characters
 const playerBlue = new Human("Michel", "boots");
-const playerRed = new Vampire("Grom", "sword");
+const playerRed = new Vampire("Shana", "sword");
 
 // Apply item modifiers to Characters
 applyItemModifiers(playerBlue, playerBlue.item);
@@ -132,14 +134,28 @@ applyItemModifiers(playerRed, playerRed.item);
 var attacker;
 var defender;
 
-// BUTTONS - ACTIONS
-document.getElementById("playerBlueHit").addEventListener("click", function() {
+console.log(playerBlue);
+console.log(playerRed);
+
+// Turn counter
+var turn = 0;
+if (turn % 2 == 0) {
     attacker = playerBlue;
     defender = playerRed;
-    attack();
-})
-document.getElementById("playerRedHit").addEventListener("click", function() {
+}
+else {
     attacker = playerRed;
     defender = playerBlue;
+}
+// Make buttons unavailable for others, otherwise, it will mess up the logic!!!
+
+// BUTTONS - ACTIONS
+document.getElementById("playerBlueHit").addEventListener("click", function() {
     attack();
+    turn += 1;
+})
+document.getElementById("playerRedHit").addEventListener("click", function() {
+
+    attack();
+    turn += 1;
 })
