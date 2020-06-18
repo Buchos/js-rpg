@@ -35,62 +35,58 @@ $small: .9rem;
 
 ///////////////////// General
 body {
-  background-image: url("../img/bg.jpg");
+    background-image: url("../img/bg.jpg");
 }
 
 body > * {
-  font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .maingrid {
-  display: -ms-grid;
-  display: grid;
-  max-width: 70vw;
-  height: 90vh;
-  margin: auto;
-  -ms-grid-columns: 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr;
-  -webkit-column-gap: 30px;
-          column-gap: 30px;
-  margin-top: 30px;
-}
-
-.maingrid section {
-  display: -ms-grid;
-  display: grid;
-  padding: 10px;
-  border-radius: 10px;
-  width: 100%;
-  row-gap: 20px;
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
-}
-
-.maingrid section img {
-  border-radius: 10px;
-  width: 100%;
-}
-
-.maingrid .char-1, .maingrid .char-2 {
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
-}
-
-.maingrid .game-screen {
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+    display: grid;
+    max-width: 70vw;
+    height: 90vh;
+    margin: auto;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 30px;
+    margin-top: 30px;
+    section {
+        display: grid;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        row-gap: 20px;
+        column-gap: 20px;
+        img {
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+    .char-1, .char-2 {
+        grid-template-rows: 1fr;
+    }
+    .game-screen {
+        grid-template-rows: 1fr;
+    }
 }
 
 .char-1 {
-  background-color: rgba(92, 136, 255, 0.904);
+    background-color: $char-1-color;
 }
 
 .char-2 {
-  background-color: rgba(255, 68, 68, 0.808);
+    background-color: $char-2-color;
 }
 
 .char-info {
-  font-size: 1.2rem;
+    font-size: $regular;
+    div {
+        margin-top: 10px;
+    }
+    label {
+        display: block;
+        padding-bottom: 5px;
+    }
 }
 
 ////////////// Health Bar
@@ -114,62 +110,41 @@ input {
     width: 100%;
 }
 
-.char-1-hp-max-bar, .char-2-hp-max-bar {
-  background-color: red;
-  border: 2px solid #ebcb91;
-  height: 20px;
-  position: relative;
-}
 
-.char-1-hp-bar, .char-2-hp-bar {
-  background-color: #31b331;
-  width: 40%;
-  transition: width 2s;
-  height: 16px;
-  position: absolute;
-  // top: -10px;
-}
-
-input {
-  width: 100%;
-}
-
+/////////////////////// MIDDLE PANE
 .game-screen {
-  background-color: rgba(110, 110, 110, 0.699);
+    background-color: $game-screen-color;
+    .turn, .start-fight {
+        font-size: $big;
+        text-align: center;
+        color: $game-screen-text;
+    }
+    .log-panel {
+        height: 200px;
+        padding: 20px;
+        background-color: $log-panel-color;
+        overflow: scroll;
+        font-size: $small;
+    }
 }
 
-.game-screen .turn, .game-screen .start-fight {
-  font-size: 1.8rem;
-  text-align: center;
-  color: white;
-}
-
-.game-screen .log-panel {
-  height: 200px;
-  padding: 20px;
-  background-color: #cecdcd;
-  overflow: scroll;
-  font-size: 0.9rem;
-}
-
+///////////// BUTTONS
 .buttons div, .start-fight {
-  width: 100%;
-  color: white;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  text-align: center;
-  background-color: rgba(32, 32, 32, 0.459);
-  border-radius: 5px;
-  margin: 7px 0px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.buttons div:hover, .start-fight:hover {
-  background-color: rgba(185, 185, 185, 0.459);
+    width: 100%;
+    color: $button-text-color;
+    font-size: $medium;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: $button-bg-color;
+    border-radius: 5px;
+    margin: 7px 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: lighten($darkgray, 60);
+    }
 }
 
 select {
-  width: 100%;
+    width: 100%;
 }
-/*# sourceMappingURL=style.css.map */
