@@ -8,6 +8,8 @@ Choose a name, a race and an object to equip and start the battle.
 Turn by turn, each player can either **attack**, **heal** or **yeld**.  
 The first one to lose all of his HP (health points) or yield loses the round.
 
+
+## Game Mechanics - Races and Items
 | Races   | Effects                                                                                                                                     |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Human   | 20% less damage taken                                                                                                                       |
@@ -16,7 +18,7 @@ The first one to lose all of his HP (health points) or yield loses the round.
 | Vampire | 10% lifesteal from opponents current health at start of the vampire's turn                                                                  |
 
 
-| Races   | Effects                                                                                                                                     |
+| Items   | Effects                                                                                                                                     |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Boots   | 30% chance to dodge an attack                                                                                                               |
 | Staff   | 20% increase in healing                                                                                                                     |
