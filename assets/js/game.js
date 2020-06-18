@@ -5,7 +5,7 @@
 
     var player1 = {
         name : "Bob",
-        race : "elf",
+        race : "vampire",
         item : "sword",
         currenthealth : 100,
         maxHealth : 100,
@@ -13,7 +13,7 @@
         maxDamage : 20,
         maxHeling : 30,
         damagemodif : 1,
-        vampiremod : 0,
+        vampiremod : 0.1,
 
     }
 
@@ -40,7 +40,9 @@
     document.getElementById("charOneName").innerHTML = "Name : " + player1.name;
     document.getElementById("charTwoName").innerHTML = "Name : " + player2.name;
     
-    let logPanel = document.getElementById("log-panel").innerHTML;
+    document.getElementById("log-panel").innerHTML = "Begin the fight\n"
+    var logPanel = document.getElementById("log-panel").innerHTML;
+    console.log("logPanel " + logPanel);
 
     function calcHP() {
         document.getElementById("charOneHP").innerHTML = "HP : " + player1.currenthealth + "/" + player1.maxHealth;
@@ -49,8 +51,8 @@
     calcHP();
 
     function updateHP () {
-        document.getElementById("charOneHPBar").style.setProperty = player1.currenthealth/player1.currenthealth;
-        document.getElementById("charTwoHPBar").innerHTML = player2.currenthealth/player2.currenthealth;
+        document.getElementById("charOneHPBar").style["width"] = (player1.currenthealth/player1.currenthealth) + "%";
+        document.getElementById("charOneTwoBar").style["width"] = (player2.currenthealth/player2.currenthealth) + "%";
     };
 
     // création d'une variable turn pour déterminer le tour de jeu
@@ -91,7 +93,7 @@
         
         // affichage uniquement si vampiremod != 0
         if (me.vampiremod !=0){
-            logPanel = "Enemy vampire sucks your blood !\n" + logPanel;
+            logPanel = +"Enemy vampire sucks your blood !\n";
 
             console.log("enemy life is drained");
             console.log("your life is " + me.currenthealth);
@@ -132,7 +134,7 @@
 
         // calcul des dégats en tenant compte du modificateur de race
 
-        const truedamages = Math.round(degats*opponent.damagemodif);
+        const truedamages = Math.floor(degats*opponent.damagemodif);
 
         const chance = Math.round(Math.random()*100)
         console.log("chance is "+ chance)
@@ -219,10 +221,13 @@
             // vérification de l'arc pour seconde attaque
         
             if(me.item === "bow"){
-                logPanel = "Second attack thanks to the bow !\n" + logPanel;
-                console.log("second attack");
-                // appel fonction dégats
-                damages();
+                let bowchance = Math.round(Math.random() * 100)
+                if (bowchance <= 30){
+                    logPanel = "Second attack thanks to the bow !\n" + logPanel;
+                    console.log("second attack");
+                    // appel fonction dégats
+                    damages();
+                }
             }
 
             console.log("player2 life is " + player2.currenthealth);
@@ -308,11 +313,13 @@
             // vérif seconde attaque si bow
         
             if(me.item === "bow"){
-                logPanel = "Second attack thanks to your bow !\n" + logPanel;
-
-                console.log("second attack");
-            
-                damages();
+                let bowchance = Math.round(Math.random() * 100)
+                if (bowchance <= 30){
+                    logPanel = "Second attack thanks to the bow !\n" + logPanel;
+                    console.log("second attack");
+                    // appel fonction dégats
+                    damages();
+                }
             }
 
             console.log("player1 life is " + player1.currenthealth);
