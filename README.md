@@ -30,6 +30,6 @@ This game is a Javascript exercice for Becode Liege. The objective was to practi
 [Instructions for the exercice](https://github.com/becodeorg/LIE-Jepsen-3.20/tree/master/02-the-hill/01-javascript/01-rpg-project)  
 
 ### Produced by Team 6
-+ Arthur Pluymers
-+ Artyom Kouznetsov
-+ Christophe Pecceu
++ Arthur Pluymers - [gitHub](https://github.com/Buchos)
++ Artyom Kouznetsov - [gitHub](https://github.com/Arti-Art)
++ Christophe Pecceu - [gitHub](https://github.com/ChrisPecc)
