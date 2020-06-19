@@ -104,7 +104,7 @@
     document.getElementById("charOneName").innerHTML = "Name : " + player1.name;
     document.getElementById("charTwoName").innerHTML = "Name : " + player2.name;
     
-    document.getElementById("log-panel").innerHTML = "";
+    document.getElementById("loglist").innerHTML = "";
     
     // fonction pour garder la barre de scroll du log en bas
     function gotoBottom(){
@@ -117,7 +117,7 @@
         let node = document.createElement("LI");                 
         let textnode = document.createTextNode(x);         // Create a text node
         node.appendChild(textnode);
-        document.getElementById("log-panel").appendChild(node); 
+        document.getElementById("loglist").appendChild(node); 
 
         gotoBottom(); 
     }
