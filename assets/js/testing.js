@@ -139,23 +139,33 @@ console.log(playerRed);
 
 // Turn counter
 var turn = 0;
-if (turn % 2 == 0) {
-    attacker = playerBlue;
-    defender = playerRed;
+function turnPlayerAssign() {
+    if (turn % 2 == 0) {
+        attacker = playerBlue;
+        defender = playerRed;
+    }
+    else {
+        attacker = playerRed;
+        defender = playerBlue;
+    }
 }
-else {
-    attacker = playerRed;
-    defender = playerBlue;
-}
-// Make buttons unavailable for others, otherwise, it will mess up the logic!!!
 
 // BUTTONS - ACTIONS
 document.getElementById("playerBlueHit").addEventListener("click", function() {
-    attack();
-    turn += 1;
+    if (turn % 2 == 0) {
+        turnPlayerAssign();
+        attack();
+        turn += 1;
+    }
+    else {console.log("It's not your turn!")}
 })
 document.getElementById("playerRedHit").addEventListener("click", function() {
-
-    attack();
-    turn += 1;
+    if (turn % 2 == 1) {
+        turnPlayerAssign();
+        attack();
+        turn += 1;
+    }
+    else {console.log("It's not your turn!")}
 })
+
+// quand je console log, faire un effet typewriter??
