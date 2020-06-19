@@ -314,6 +314,14 @@
             
 
             // vérification de l'arc pour seconde attaque
+
+            if (me.currenthealth <= 0){
+                me.currenthealth = 0; // pas de négatif affichés dans l'UI
+                setTimeout(() => {
+                    displayWinScreen ();
+                    
+                }, 1000); 
+            }
             
         
             if(me.item === "bow"){
