@@ -103,7 +103,7 @@
         
         // affichage uniquement si vampiremod != 0
         if (me.vampiremod !=0){
-            ajoutlog("You suck your opponent's blood");
+            ajoutlog("You suck " + opponent.name + " blood");
             ajoutlog(logVie + " HP are drained");
 
         }
@@ -151,8 +151,8 @@
             me.currenthealth -= Math.floor(truedamages/2);
             calcHP();
             updateHP();
-            ajoutlog("Your opponent avoids your attack and returns 50% of the damages !");
-            ajoutlog("You loose " + truedamages + " HP");
+            ajoutlog(opponent.name + " avoids your attack and returns 50% of the damages !");
+            ajoutlog(me.name + " lost " + truedamages + " HP");
 
 
             if (me.currenthealth <= 0){
@@ -167,7 +167,7 @@
             opponent.currenthealth -= truedamages;
             calcHP();
             updateHP();
-            ajoutlog("Your opponent looses " + truedamages + " HP");
+            ajoutlog(opponent.name + " lost " + truedamages + " HP");
 
 
             // vérification de la vie de l'adversaire
@@ -189,7 +189,7 @@
         // calcul de base 
 
         var restore = me.min + Math.round(Math.random()*(me.maxHeling - me.min));
-        ajoutlog("You heal yourself")
+        ajoutlog(me.name + " heals himself")
         
         // vérification possession staff
 
@@ -202,7 +202,7 @@
         // ajout des hps au personnage
 
         me.currenthealth += restore;
-        ajoutlog("You get " + restore + " HP back")
+        ajoutlog(me.name + " gets " + restore + " HP back")
 
         // prise en compte du cas d'overheal
         if (me.currenthealth > me.maxHealth){
@@ -217,12 +217,12 @@
 
     document.getElementById("charOneHit").addEventListener("click", function() {
         if (turn == 0){ // vérif du tour            
-            ajoutlog("You attack your opponent");
-
             
             // choix de quel joueur est nous, quel est l'ennemi. va changer selon le jouer d'où l'intérêt de créer les variables en global et ne pas les définir.
             me = player1;    
             opponent = player2;
+            
+            ajoutlog(me.name + " attack his opponent");
 
             // vampire mod
             vampire();
@@ -307,14 +307,14 @@
     document.getElementById("charTwoHit").addEventListener("click", function() {
         // vérif du tour
         if (turn == 1){
-            ajoutlog("You attack your opponent");
-
-
+            
             // choix de quel joueur est nous, quel est l'ennemi
-
             me = player2;
             opponent = player1;
-
+            
+            
+            ajoutlog(me.name + " attack his opponent");
+            
             // vampire mod
             vampire();
 
@@ -384,4 +384,4 @@
         }    
     });
 
-})(); 
+})();   
