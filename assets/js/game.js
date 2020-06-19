@@ -26,7 +26,7 @@
     const playerBlueImg = document.getElementById("playerBlueImg");
     const playerRedImg = document.getElementById("playerRedImg");
 
-    // SET Img Src for Player Images
+    // Function for setting Img Src for Player Images
     function setPlayerBlueImg(character) {
         switch (character.race) {
             case "human":
@@ -59,9 +59,9 @@
                 break;
         }
     }
-    //
-    setPlayerBlueImg(characterBlue);
-    setPlayerRedImg(characterRed);
+    // Set Imgs for Players
+    setPlayerBlueImg(player1);
+    setPlayerRedImg(player2);
 
     //Récupérer la race et l'item et l'afficher
     document.getElementById("charOneRace").innerHTML = "Race : " + player1.race;
