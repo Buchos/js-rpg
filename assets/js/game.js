@@ -63,6 +63,32 @@
     setPlayerBlueImg(player1);
     setPlayerRedImg(player2);
 
+    // Function Display Win Screen
+    function displayWinScreen () {
+        document.getElementById("winScreen").classList.toggle("unhide");
+        if (playerBlue.HP > playerRed.HP) {
+            document.getElementById("winStripe").style.backgroundColor = "blue";
+            document.getElementById("winner").innerHTML= playerBlue.name + " won!";
+        }
+        else {
+            document.getElementById("winStripe").style.backgroundColor = "red";
+            document.getElementById("winner").innerHTML= playerRed.name + " won!";
+        }
+    }
+    // Function Display Yield Screen
+    function displayYieldScreen () {
+        document.getElementById("winScreen").classList.toggle("unhide");
+        if (turn == 0) {
+            document.getElementById("winStripe").style.backgroundColor = "red";
+            document.getElementById("winner").innerHTML= playerBlue.name + " abandoned! <br>" + playerRed.name + " won!";
+        }
+        else {
+            document.getElementById("winStripe").style.backgroundColor = "blue";
+            document.getElementById("winner").innerHTML= playerRed.name + " abandoned! <br>" + playerBlue.name + " won!";
+        }
+    }
+    
+
     //Récupérer la race et l'item et l'afficher
     document.getElementById("charOneRace").innerHTML = "Race : " + player1.race;
     document.getElementById("charOneObj").innerHTML = "Item : " + player1.item;
