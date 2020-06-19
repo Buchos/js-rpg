@@ -34,14 +34,14 @@
     
     // fonction pour garder la barre de scroll du log en bas
     function gotoBottom(){
-        var element = document.getElementById("log-panel");
+        let element = document.getElementById("log-panel");
         element.scrollTop = element.scrollHeight - element.clientHeight;
     }
 
     // fonction pour ajouter les logs par en bas
     function ajoutlog(x){
-        var node = document.createElement("LI");                 
-        var textnode = document.createTextNode(x);         // Create a text node
+        let node = document.createElement("LI");                 
+        let textnode = document.createTextNode(x);         // Create a text node
         node.appendChild(textnode);
         document.getElementById("log-panel").appendChild(node); 
 
@@ -89,7 +89,7 @@
     function vampire (){
         // calcul de l'absorbtion. 
         me.currenthealth += Math.floor(me.vampiremod * opponent.currenthealth);
-        var logVie = Math.floor(me.vampiremod * opponent.currenthealth);
+        let logVie = Math.floor(me.vampiremod * opponent.currenthealth);
         calcHP();
         updateHP();
         // cas ou la vie absorbée fait est plus élevée que la vie max
@@ -103,7 +103,7 @@
         
         // affichage uniquement si vampiremod != 0
         if (me.vampiremod !=0){
-            ajoutlog("You suck " + opponent.name + " blood");
+            ajoutlog(me.name +" suck " + opponent.name + "'s blood");
             ajoutlog(logVie + " HP are drained");
 
         }
@@ -117,7 +117,7 @@
             
         // calcul de base 
 
-        var degats = me.min + Math.round(Math.random()*(me.maxDamage - me.min));
+        let degats = me.min + Math.round(Math.random()*(me.maxDamage - me.min));
         
         // vérification épée
 
@@ -132,7 +132,7 @@
 
         if (opponent.item === "boots"){
             // jet d'esquive
-            var esq = Math.round(Math.random()* 100);
+            let esq = Math.round(Math.random()* 100);
             if (esq <= 30){
                 // si esquive réussie, les dégats égalent 0
                 degats = 0;
@@ -222,10 +222,12 @@
             me = player1;    
             opponent = player2;
             
-            ajoutlog(me.name + " attack his opponent");
+            
 
             // vampire mod
             vampire();
+
+            ajoutlog(me.name + " attack his opponent");
 
             // appel fonction dégats
             damages();
@@ -293,6 +295,7 @@
         // vérif que c'est votre tour. 
         if (turn == 0){
             alert("Player 1 has fled the game! Bou hou!")
+            window.location = './index.html'
         }
 
         else {
@@ -314,10 +317,12 @@
             opponent = player1;
             
             
-            ajoutlog(me.name + " attack his opponent");
+            
             
             // vampire mod
             vampire();
+
+            ajoutlog(me.name + " attack his opponent");
 
             damages();
 
@@ -378,6 +383,7 @@
         // vérif que c'est votre tour. 
         if (turn == 1){
             alert("Player 2 has fled the game! Bou hou!")
+            window.location = './index.html'
         }
 
         else {
