@@ -150,6 +150,12 @@ function turnPlayerAssign() {
     }
 }
 
+// PAGE INITIALIZATION
+
+    // GET THE RIGHT IMAGES
+
+
+
 // BUTTONS - ACTIONS
 document.getElementById("playerBlueHit").addEventListener("click", function() {
     if (turn % 2 == 0) {
@@ -168,4 +174,9 @@ document.getElementById("playerRedHit").addEventListener("click", function() {
     else {console.log("It's not your turn!")}
 })
 
+// TESTING LOG PANEL
+var logPanel = document.getElementById("logPanel");
+logPanel.innerHTML += "<div>Test</div>";
+logPanel.innerHTML += "<div>Test2</div>";
+logPanel.innerHTML += "<div>Test3</div>";
 // quand je console log, faire un effet typewriter??
