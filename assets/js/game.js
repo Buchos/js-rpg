@@ -65,6 +65,9 @@
 
     // Function Display Win Screen
     function displayWinScreen () {
+        console.log(player1.currenthealth + " player1");
+        console.log(player2.currenthealth + " player2");
+
         document.getElementById("winScreen").classList.toggle("unhide");
         if (player1.currenthealth > player2.currenthealth) {
             document.getElementById("winStripe").style.backgroundColor = "blue";
@@ -246,6 +249,7 @@
             // vérification de la vie de l'adversaire
             if (opponent.currenthealth <= 0){
                 opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
+
                 setTimeout(() => {
                     displayWinScreen ();
                     
@@ -316,6 +320,7 @@
 
                     // appel fonction dégats
                     damages();
+
                 }
             }
 
