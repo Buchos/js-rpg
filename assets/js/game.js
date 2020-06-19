@@ -248,12 +248,12 @@
 
             // vérification de la vie de l'adversaire
             if (opponent.currenthealth <= 0){
-                opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
-
                 setTimeout(() => {
                     displayWinScreen ();
                     
                 }, 1000); 
+                opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
+
             }
     
         }        
@@ -311,7 +311,10 @@
             // appel fonction dégats
             damages();
 
+            
+
             // vérification de l'arc pour seconde attaque
+            
         
             if(me.item === "bow"){
                 let bowchance = Math.round(Math.random() * 100)
