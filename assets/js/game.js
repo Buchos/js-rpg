@@ -234,7 +234,7 @@
                 setTimeout(() => {
                     displayWinScreen ();
                     
-                }, 1500); 
+                }, 1000); 
             }
         }
 
@@ -253,7 +253,7 @@
                 setTimeout(() => {
                     displayWinScreen ();
                     
-                }, 1500); 
+                }, 1000); 
             }
     
         }        
