@@ -14,7 +14,7 @@
         x.min = Number(x.min);
         x.maxDamage = Number(x.maxDamage);
         x.maxHeling = Number(x.maxHeling);
-        x.damagemodif = Number(x.damagemodif);
+        x.damagemodif = Number(x.damagemodif); 
         x.vampiremod =Number(x.vampiremod);
 
     } 
