@@ -402,8 +402,8 @@ body > * {
 }
 
 .maingrid .game-screen {
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-rows: auto auto 1fr auto;
+      grid-template-rows: auto auto 1fr auto;
 }
 
 .char-1 {
@@ -466,6 +466,15 @@ input, select {
   font-size: 0.9rem;
 }
 
+.game-screen .log-panel .log-list {
+  padding: 0;
+}
+
+.game-screen .log-panel .log-list > * {
+  list-style: none;
+  margin-top: 5px;
+}
+
 .buttons div, .start-fight {
   width: 100%;
   color: white;
@@ -481,6 +490,10 @@ input, select {
 
 .buttons div:hover, .start-fight:hover {
   background-color: rgba(185, 185, 185, 0.459);
+}
+
+.start-fight {
+  height: 45px;
 }
 
 .win-screen {
