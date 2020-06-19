@@ -228,8 +228,10 @@
 
             if (me.currenthealth <= 0){
                 me.currenthealth = 0; // pas de négatif affichés dans l'UI
-                displayWinScreen ();
-                window.location = './index.html';
+                setTimeout(() => {
+                    displayWinScreen ();
+                    
+                }, 1500); 
             }
         }
 
@@ -244,7 +246,10 @@
             // vérification de la vie de l'adversaire
             if (opponent.currenthealth <= 0){
                 opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
-                displayWinScreen ();
+                setTimeout(() => {
+                    displayWinScreen ();
+                    
+                }, 1500); 
             }
     
         }        
