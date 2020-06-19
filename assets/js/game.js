@@ -66,13 +66,13 @@
     // Function Display Win Screen
     function displayWinScreen () {
         document.getElementById("winScreen").classList.toggle("unhide");
-        if (playerBlue.HP > playerRed.HP) {
+        if (player1.currenthealth > player2.currenthealth) {
             document.getElementById("winStripe").style.backgroundColor = "blue";
-            document.getElementById("winner").innerHTML= playerBlue.name + " won!";
+            document.getElementById("winner").innerHTML= player1.name + " won!";
         }
         else {
             document.getElementById("winStripe").style.backgroundColor = "red";
-            document.getElementById("winner").innerHTML= playerRed.name + " won!";
+            document.getElementById("winner").innerHTML= player2.name + " won!";
         }
     }
     // Function Display Yield Screen
@@ -80,13 +80,17 @@
         document.getElementById("winScreen").classList.toggle("unhide");
         if (turn == 0) {
             document.getElementById("winStripe").style.backgroundColor = "red";
-            document.getElementById("winner").innerHTML= playerBlue.name + " abandoned! <br>" + playerRed.name + " won!";
+            document.getElementById("winner").innerHTML= player1.name + " abandoned! <br>" + player2.name + " won!";
         }
         else {
             document.getElementById("winStripe").style.backgroundColor = "blue";
-            document.getElementById("winner").innerHTML= playerRed.name + " abandoned! <br>" + playerBlue.name + " won!";
+            document.getElementById("winner").innerHTML= player2.name + " abandoned! <br>" + player1.name + " won!";
         }
     }
+    // Restart Button Listener
+    document.getElementById("restartButton").addEventListener("click", function() {
+        window.location = './index.html';
+    })
     
 
     //Récupérer la race et l'item et l'afficher
@@ -224,7 +228,7 @@
 
             if (me.currenthealth <= 0){
                 me.currenthealth = 0; // pas de négatif affichés dans l'UI
-                alert("you're dead") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
+                displayWinScreen ();
                 window.location = './index.html';
             }
         }
@@ -240,8 +244,7 @@
             // vérification de la vie de l'adversaire
             if (opponent.currenthealth <= 0){
                 opponent.currenthealth = 0; // pas de négatif affichés dans l'UI
-                alert("you've won") // à remplacer par le vrai script de victoire et de lancement d'une ature partie
-                window.location = './index.html';
+                displayWinScreen ();
             }
     
         }        
@@ -361,8 +364,7 @@
         
         // vérif que c'est votre tour. 
         if (turn == 0){
-            alert("Player 1 has fled the game! Bou hou!")
-            window.location = './index.html'
+            displayYieldScreen ();
         }
 
         else {
@@ -449,8 +451,7 @@
         
         // vérif que c'est votre tour. 
         if (turn == 1){
-            alert("Player 2 has fled the game! Bou hou!")
-            window.location = './index.html'
+            displayYieldScreen ();
         }
 
         else {
