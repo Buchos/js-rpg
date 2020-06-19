@@ -250,7 +250,8 @@
         }
 
         else {
-            alert("It's not your turn");
+            
+            ajoutlog("It's " + player2.name + "'s turn!");
         }    
     });
 
@@ -280,7 +281,7 @@
         }
 
         else {
-            alert("It's not your turn");
+            ajoutlog("It's " + player2.name + "'s turn!");
         }    
     });
 
@@ -295,7 +296,7 @@
         }
 
         else {
-            alert("It's not your turn");
+            ajoutlog("It's " + player2.name + "'s turn!");
         }    
     });
 
@@ -338,7 +339,7 @@
         }
 
         else {
-            alert("It's not your turn");
+            ajoutlog("It's " + player1.name + "'s turn!");
         }    
     });
 
@@ -366,7 +367,7 @@
         }
 
         else {
-            alert("It's not your turn");
+            ajoutlog("It's " + player1.name + "'s turn!");
         }    
     });
 
@@ -380,7 +381,7 @@
         }
 
         else {
-            alert("It's not your turn");
+            ajoutlog("It's " + player1.name + "'s turn!");
         }    
     });
 
