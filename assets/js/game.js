@@ -22,6 +22,47 @@
     stringToNumber (player1);
     stringToNumber (player2);
 
+    // GET Player Img Src
+    const playerBlueImg = document.getElementById("playerBlueImg");
+    const playerRedImg = document.getElementById("playerRedImg");
+
+    // SET Img Src for Player Images
+    function setPlayerBlueImg(character) {
+        switch (character.race) {
+            case "human":
+                playerBlueImg.setAttribute("src", "assets/img/js-rpg-human.png");
+                break;
+            case "elf":
+                playerBlueImg.setAttribute("src", "assets/img/js-rpg-elf.png");
+                break;
+            case "orc":
+                playerBlueImg.setAttribute("src", "assets/img/js-rpg-orc.png");
+                break;
+            case "vampire":
+                playerBlueImg.setAttribute("src", "assets/img/js-rpg-vampire.png");
+                break;
+        }
+    }
+    function setPlayerRedImg(character) {
+        switch (character.race) {
+            case "human":
+                playerRedImg.setAttribute("src", "assets/img/js-rpg-human.png");
+                break;
+            case "elf":
+                playerRedImg.setAttribute("src", "assets/img/js-rpg-elf.png");
+                break;
+            case "orc":
+                playerRedImg.setAttribute("src", "assets/img/js-rpg-orc.png");
+                break;
+            case "vampire":
+                playerRedImg.setAttribute("src", "assets/img/js-rpg-vampire.png");
+                break;
+        }
+    }
+    //
+    setPlayerBlueImg(characterBlue);
+    setPlayerRedImg(characterRed);
+
     //Récupérer la race et l'item et l'afficher
     document.getElementById("charOneRace").innerHTML = "Race : " + player1.race;
     document.getElementById("charOneObj").innerHTML = "Item : " + player1.item;
