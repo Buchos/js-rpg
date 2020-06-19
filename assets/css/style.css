@@ -391,7 +391,9 @@ body > * {
 
 .maingrid section img {
   border-radius: 10px;
-  width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 0px auto;
 }
 
 .maingrid .char-1, .maingrid .char-2 {
@@ -435,12 +437,14 @@ body > * {
 .char-1-hp-bar, .char-2-hp-bar {
   background-color: #31b331;
   width: 40%;
+  -webkit-transition: width 1s;
+  transition: width 1s;
   height: 16px;
   position: absolute;
   top: -10px;
 }
 
-input {
+input, select {
   width: 100%;
 }
 
@@ -479,7 +483,59 @@ input {
   background-color: rgba(185, 185, 185, 0.459);
 }
 
-select {
+.win-screen {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  background-color: rgba(44, 44, 44, 0.726);
+  height: 100vh;
+  width: 100vw;
+}
+
+.win-screen .win-stripe {
+  position: fixed;
+  z-index: 3;
+  top: 35vh;
+  height: 30vh;
   width: 100%;
+  background-color: red;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.win-screen .win-stripe > * {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.win-screen .win-stripe .winner {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.win-screen .win-stripe .restart-button {
+  background-color: #585858;
+  height: 40px;
+  width: 250px;
+  margin: auto;
+  font-size: 1.4rem;
+  line-height: 34px;
+  border: 3px solid #b4b4b4;
+}
+
+.win-screen .win-stripe .restart-button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.unhide {
+  display: inline;
 }
 /*# sourceMappingURL=style.css.map */
