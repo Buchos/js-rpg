@@ -115,7 +115,7 @@ function attack () {
         strike();
         stealHP();
     }
-    if (defender.ctrAtk == 1) {
+    else if (defender.ctrAtk == 1) {
         console.log(`${defender.name} counter-attacks!`);
         dmg = baseDMG * defender.atk * attacker.def * ctrAtkMod; // defender attacking attacker
         console.log(`${defender.name} deals ${dmg} of damage to ${attacker.name}`);
